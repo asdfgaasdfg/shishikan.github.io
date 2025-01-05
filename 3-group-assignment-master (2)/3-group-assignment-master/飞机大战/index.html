@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>飞机大战</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" type="image/png" href="image/我的飞机.png">
+    <meta name="description" content="一款鼠标小游戏">
+    <meta name="author" content="王安琪">
+</head>
+
+<body>
+    <div id="contentdiv">
+        <div id="startdiv">
+            <button onclick="begin()">开始游戏</button>
+        </div>
+        <div id="maindiv">
+            <div id="scorediv">
+                <label>生命值：</label>
+                <label id="livesLabel">3</label>
+                <br/>
+                <label>分数：</label>
+                <label id="label">0</label>
+                <br/>
+                <label>历史最高分数：</label>
+                <label id="highestScoreLabel">0</label>
+            </div>
+            <div id="suspenddiv">
+                <button>继续</button><br/>
+                <button>重新开始</button><br/>
+            </div>
+            <div id="enddiv">
+                <p class="plantext">战果</p>
+                <p id="planscore">0</p>
+                <p id="message1" class="message"></p>
+                <p id="message2" class="message"></p>
+                <p id="message3" class="message"></p>
+                <p id="message4" class="message"></p>
+                <p id="message5" class="message"></p>
+                <p id="message6" class="message"></p>
+                <div><button onclick="jixu()">继续</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="game-instructions">
+        <h1>飞机大战苦瓜星人</h1>
+      <h2>游戏说明：</h2>
+      <ul>
+        <li>控制我方飞机躲避敌方苦瓜星人。</li>
+        <li>点击“开始游戏”后，使用鼠标来移动飞机。</li>
+        <li>避免与飞机相撞，同时尽可能多的击落敌方。</li>
+        <li>我放飞机初始生命值为3，撞击一次将获得2s无敌时间，生命值为0时飞机将爆炸！</li>
+        <li>会有道具不定期产生哦，包括加分道具、无敌护盾、恢复生命哦</li>
+        <li>开始游戏后点击鼠标即可暂停游戏。</li>
+        <li>快来打败苦瓜星人，重拾好心情吧！</li>
+        <li>每五万积分，你的战果会有所飞跃哦！</li>
+        <li>积分达到二十五万，苦瓜星人就被你战胜啦！关注结束页面的鼓励语！</li>
+      </ul>
+      <h3>全屏体验更佳！！</h3>
+    </div>
+    <button class="return-home-button" onclick="goToHomePage()">返回首页</button>
+    <audio id="gameStartAudio" src="audio/游戏界面音效.mp3" preload="auto"></audio>
+    <audio id="explosionAudio" src="audio/爆炸音效.mp3" preload="auto"></audio>
+    <audio id="failAudio" src="audio/失败音效.mp3" preload="auto"></audio>
+    <audio id="winAudio" src="audio/胜利音效.mp3" preload="auto"></audio>
+    <audio id="getAudio" src="audio/获得音效.mp3" preload="auto"></audio>
+    <script type="text/javascript" src="main.js"></script>
+</body>
+
+</html>

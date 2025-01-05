@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择游戏</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        body, html {
+            height: 100%;
+            overflow: hidden; /* 禁止滚动 */
+        }
+
+        .game-selection-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 使用1fr单位来均分空间 */
+            grid-template-rows: repeat(2, 50vh); /* 每个行占视口高度的一半 */
+            width: 100%;
+            height: 100%;
+        }
+
+        .game-link {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-size: cover; /* 背景图片覆盖整个区域 */
+            background-position: center; /* 背景图片居中 */
+            cursor: pointer;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .game-link:hover {
+            opacity: 0.7;
+        }
+
+        #background0 { background-image: url('images/04.png'); } /* 左上角 */
+        #vs { background-image: url('images/02.png'); } /* 右上角 */
+        #logo { background-image: url('images/01.png'); } /* 左下角 */
+        #background2 { background-image: url('images/03.png'); } /* 右下角 */
+    </style>
+</head>
+<body>
+    <div class="game-selection-grid">
+        <!-- 左上角：2048游戏 -->
+        <a href="2048/2048.html" class="game-link" id="background0"></a>
+        <!-- 右上角：飞机大战游戏 -->
+        <a href="飞机大战/index.html" class="game-link" id="vs"></a>
+        <!-- 左下角：开心小兔快点跑游戏 -->
+        <a href="开心小兔跑起来/index.html" class="game-link" id="logo"></a>
+        <!-- 右下角：海绵宝宝旷工游戏 -->
+        <a href="海绵宝宝矿工/index.html" class="game-link" id="background2"></a>
+    </div>
+</body>
+</html>

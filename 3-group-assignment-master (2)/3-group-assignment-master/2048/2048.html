@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048小游戏 - 心情版</title>
+    <link rel="stylesheet" href="2048.css" />
+</head>
+<body>
+    <!-- 游戏头部信息 -->
+    <header>
+        <h1>2048小游戏 - 心情版</h1>
+        <div class="score-board">
+            <p>当前分数: <span id="current-score">0</span></p>
+            <p>当前最高心情: <span id="current-highest">伤心</span></p>
+            <p>最佳分数: <span id="best-score">0</span></p>
+        </div>
+        <button id="restart-btn">重新开始</button>
+        <button id="more-games-btn" onclick="window.location.href='../汇总.html';">更多游戏</button>
+    </header>
+
+    <!-- 难度选择界面 -->
+    <div id="difficulty-menu" class="menu-container">
+        <h2>选择游戏模式</h2>
+        <button onclick="startGame('classic')">经典模式</button>
+        <button onclick="startGame('easy')">简单模式</button>
+        <button onclick="startGame('hard')">困难模式</button>
+    </div>
+
+    <!-- 游戏主体 -->
+    <main class="main-container" style="display: none;">
+        <!-- 游戏网格 -->
+        <div id="game-board" class="game-container"></div>
+
+        <!-- 游戏说明 -->
+        <aside class="game-instructions">
+            <h2>游戏玩法说明</h2>
+            <p>欢迎来到心情版的2048小游戏！以下是玩法规则：</p>
+            <ul>
+                <li>使用方向键 <strong>↑ ↓ ← →</strong> 滑动方块。</li>
+                <li>相同的词语可以合并升级为更积极的心情。</li>
+                <li>词语色块越深表示该词语等级越高。</li>
+                <li>游戏目标是达到 <strong>"至福"</strong>。</li>
+                <li>每次滑动后，随机生成新的词语。</li>
+                <li>当网格被填满且无可合并的词语时，游戏结束。</li>
+            </ul>
+            <p>祝你好运，享受心情的旅程！</p>
+        </aside>
+    </main>
+
+    <!-- 游戏结束提示 -->
+    <div id="gameover" class="gameover-modal" style="display: none;">
+        <div class="gameover-content">
+            <h2>游戏结束</h2>
+            <p>分数: <span id="final-score">0</span></p>
+            <p>达到的最高心情: <span id="final-highest">伤心</span></p>
+            <button onclick="initializeGame()">重新开始</button>
+        </div>
+    </div>    
+
+    <!-- 脚本 -->
+    <script type="text/javascript" src="2048.js"></script>
+</body>
+</html>

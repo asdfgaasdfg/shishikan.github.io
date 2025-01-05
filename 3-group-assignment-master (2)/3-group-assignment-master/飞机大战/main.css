@@ -1,0 +1,176 @@
+body {
+    background-image: url('image/背景.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+}
+
+#contentdiv{
+    position: absolute;
+    left: 500px;
+}
+#startdiv{
+    width: 320px;
+    height: 568px;
+    background-image: url(image/开始背景.png);
+}
+
+#startdiv button{
+    position: absolute;
+    top: 500px;
+    left: 82px;
+    width: 150px;
+    height: 40px;
+    border: 2px solid #123fd3; /* 调整边框颜色和粗细 */
+    border-radius: 25px; /* 调整圆角半径以改变按钮形状 */
+    background: linear-gradient(135deg, #123fd3, #0433b3); /* 添加渐变背景 */
+    color: #ffffff; /* 设置文字颜色 */
+    font-size: 18px; /* 增大字体大小 */
+    font-weight: bold; /* 加粗字体 */
+   text-align: center; /* 文本居中 */
+    line-height: 35px; /* 行高与按钮高度一致，使文本垂直居中 */
+    transition: all 0.3s ease; /* 添加过渡效果 */
+    cursor: pointer; /* 鼠标悬停时显示指针 */
+}
+
+#startdiv button:hover {
+    background: #2193b0; /* 悬停时改变背景颜色 */
+    box-shadow: 0 12px 15px 24px rgba(34, 152, 219, 0.2); /* 添加阴影 */
+}
+#maindiv{
+    width: 320px;
+    height: 568px;
+    background-image:url(image/background_1.png) ;
+    display: none;
+}
+#maindiv img{
+    position: absolute;
+    z-index: 1;
+}
+#scorediv{
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: none;
+    background-color: #c4c9ca;
+    border-radius: 8px; /* 添加圆角 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+    padding: 8px 12px; /* 增加内边距 */
+    border: 2px solid #333; /* 添加边框 */
+    background-image: linear-gradient(to right, #4ca1af, #c4e0e5); /* 添加渐变背景 */
+    color: #fff; /* 文字颜色 */
+}
+#scorediv{
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #c4c9ca;
+}
+#suspenddiv{
+    position: absolute;
+    top: 210px;
+    left: 82px;
+    display: none;
+    z-index: 2;
+}
+#suspenddiv button{
+    width: 150px;
+    height: 30px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    border-radius: 30px;
+    background-color: #c4c9ca;
+}
+
+.plantext{
+    width: 300px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+}
+#planscore{
+    width: 300px;
+    height: 80px;
+    line-height: 80px;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    font-size: 16px;
+    font-weight: bold;
+}
+#enddiv div{
+    width: 250px;
+    height: 50px;
+}
+#enddiv div button{
+    margin-top:10px ;
+    width: 295px;
+    height: 30px;
+    border: 1px solid gray;
+    border-radius: 30px;
+}
+#enddiv{
+    position: absolute;
+    top: 150px;
+    left: 10px;
+    right: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    text-align: center;
+    background-color:#d7ddde;
+    display: none;
+    z-index: 2;
+}
+
+.game-instructions {
+    margin-top: 0px;
+    margin-left: 1000px;
+    text-align: left;
+    border: 2px solid #007bff; /* 蓝色边框 */
+    border-radius: 8px; /* 边框圆角 */
+    padding: 40px; /* 内边距 */
+    background-color: #f8f9fa; /* 浅灰色背景 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+    width: 300px; /* 指定宽度 */
+    max-width: 100%; /* 最大宽度不超过容器 */
+}
+
+.message {
+    display: none; /* 默认隐藏所有消息 */
+    margin-top: 10px; /* 消息之间的间距 */
+    font-size: 16px; /* 字体大小 */
+}
+
+.return-home-button {
+    position: absolute;
+    bottom: 25%; /* 距离底部1/4全屏高度 */
+    left: 50%; /* 左右居中的起始位置 */
+    transform: translateX(-50%); /* 向左移动自身宽度的50%来居中 */
+    width: 200px; /* 增加按钮宽度 */
+    height: 50px; /* 增加按钮高度 */
+    border: 2px solid #123fd3; /* 调整边框颜色和粗细 */
+    border-radius: 25px; /* 调整圆角半径以改变按钮形状 */
+    background: linear-gradient(135deg, #123fd3, #0433b3); /* 添加渐变背景 */
+    color: #ffffff; /* 设置文字颜色 */
+    font-size: 18px; /* 增大字体大小 */
+    font-weight: bold; /* 加粗字体 */
+   text-align: center; /* 文本居中 */
+    line-height: 50px; /* 行高与按钮高度一致，使文本垂直居中 */
+    transition: all 0.3s ease; /* 添加过渡效果 */
+    cursor: pointer; /* 鼠标悬停时显示指针 */
+}
+
+/* 添加悬停效果 */
+.return-home-button:hover {
+    background: #2193b0; /* 悬停时改变背景颜色 */
+    box-shadow: 0 12px 15px 24px rgba(34, 152, 219, 0.2); /* 添加阴影 */
+}
+
+.golden-glow {
+    box-shadow: 0 0 20px 10px rgba(255, 215, 0, 0.8); /* 金色发光效果 */
+    border-radius: 50%; /* 让光圈更柔和 */
+    z-index: 2; /* 保证光圈在其他元素之上 */
+}
+

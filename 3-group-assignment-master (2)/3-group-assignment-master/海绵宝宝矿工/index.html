@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HaiZuka - Gold Miner Game</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 背景音乐 -->
+    <audio id="background-music" loop>
+        <source src="music.mp3" type="audio/mp3">
+        <source src="music.ogg" type="audio/ogg">
+        <p>Your browser does not support the audio element.</p>
+    </audio>
+
+    <div id="start-screen">
+        <div class="content">
+            <h1>海绵宝宝矿工</h1>
+            <p>点击下面的按钮开始游戏，规则如下：</p>
+            <ul>
+                <li>使用鼠标或键盘控制放出钩子，抓取不同的物品(北邮校徽)。</li>
+                <li>每个物品有不同的分值，尽量抓取高分物品。</li>
+                <li>游戏有时间限制，时间结束时，游戏会自动结束并显示得分。</li>
+                <li>根据得分进入下一关。</li>
+            </ul>
+            <button id="start-button">开始游戏</button>
+            <button id="more-games-btn" onclick="window.location.href='../汇总.html';">更多游戏</button>
+            <p id="high-level-display"></p>
+        </div>
+    </div>
+
+    <canvas id="game-canvas" style="display: none;"></canvas> <!-- 初始时隐藏画布 -->
+    <div id="end-screen" style="display: none;">
+        <h2 id="end-screen-title"></h2>
+        <p id="end-screen-score"></p>
+        <button id="end-screen-button">确定</button>
+        <button id="back-to-home">返回首页</button> <!-- 新增返回首页按钮 -->
+    </div>    
+
+    <script type="text/javascript" src="js/gold.js"></script>
+    <script type="text/javascript" src="js/game.js"></script>
+    <script type="text/javascript">
+        // 获取背景音乐元素
+        const backgroundMusic = document.getElementById('background-music');
+        const startButton = document.getElementById('start-button');
+        const endScreenButton = document.getElementById('end-screen-button');
+        const backToHomeButton = document.getElementById('back-to-home');
+        const highLevelDisplay = document.getElementById('high-level-display');
+
+        // 从 localStorage 获取历史最高关卡
+        let highLevel = parseInt(localStorage.getItem('highLevel'), 10) || 1; // 确保为数字类型
+
+        // 显示历史最高关卡等级
+        function updateHighLevelDisplay() {
+            highLevelDisplay.innerText = "历史最高关卡等级: " + highLevel;
+        }
+
+        // 页面加载时显示历史最高关卡
+        document.addEventListener("DOMContentLoaded", () => {
+            updateHighLevelDisplay();
+        });
+
+        // 游戏开始时播放背景音乐
+        startButton.addEventListener('click', () => {
+            backgroundMusic.play().catch((error) => {
+                console.error('音频播放失败:', error);
+            });
+            document.getElementById('start-screen').style.display = 'none';
+            document.getElementById('game-canvas').style.display = 'block';
+        });
+
+        // 游戏结束后更新历史最高关卡
+        function onGameEnd(currentLevel) {
+            if (currentLevel > highLevel) {
+                highLevel = currentLevel;
+                localStorage.setItem('highLevel', highLevel.toString()); // 确保存储为字符串
+            }
+            document.getElementById('end-screen-score').innerText = "当前关卡: " + currentLevel;
+            document.getElementById('end-screen-title').innerText = "游戏结束";
+            updateHighLevelDisplay(); // 确保历史最高关卡被更新
+        }
+
+        // 返回首页按钮功能
+        backToHomeButton.addEventListener('click', () => {
+            document.getElementById('start-screen').style.display = 'block';
+            document.getElementById('game-canvas').style.display = 'none';
+            document.getElementById('end-screen').style.display = 'none';
+            updateHighLevelDisplay(); // 更新首页的历史最高关卡显示
+        });
+
+        // 页面卸载时停止背景音乐
+        window.addEventListener('beforeunload', () => {
+            backgroundMusic.pause();
+        });
+    </script>
+</body>
+</html>
